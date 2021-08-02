@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="contact.cpp" />
+    <ClCompile Include="function.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="contact.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,33 +2,15 @@
 #include <iostream>
 using namespace std;
 #include <string>
-#define MaxContact 1000
 //1 Display menu
+#include "contact.h"
 
-struct Person {
-	string name;
-	int contactNumber;
-	int gender;
-};
 
-struct AddressBook {
-	struct Person personArray[MaxContact];
-	int record_num;
-};
 
-void showMenu() {
-	cout << "*****************************" << endl;
-	cout << "*****" << "1. Add Contact" << "\t*****" << endl;
-	cout << "*****" << "2. Display Contact" << "\t*****" << endl;
-	cout << "*****" << "3. Delete Contact" << "\t*****" << endl;
-	cout << "*****" << "4. Search Contact" "\t*****"<< endl;
-	cout << "*****" << "5. Edit Contact" << "\t*****" << endl;
-	cout << "*****" << "6. Clean Contact" << "\t*****" << endl;
-	cout << "*****" << "7. Exit " << "\t\t*****" << endl;
-}
 
 
 int main() {
+	struct AddressBook Address;
 	int input = 0;
 	bool status = false;
 	while (status == false) {
@@ -40,10 +22,13 @@ int main() {
 		switch (input)
 		{
 		case 1:
+			AddContact(&Address);
 			break;
 		case 2:
+			DisplayContact(&Address);
 			break;
 		case 3:
+			DeleteContact(&Address);
 			break;
 		case 4:
 			break;
@@ -67,3 +52,4 @@ int main() {
 	//system("pause");
 	return 0;
 }
+
