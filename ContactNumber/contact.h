@@ -16,4 +16,6 @@ int AddContact(AddressBook *Address);
 void DisplayContact( AddressBook * Address);
 void showMenu();
 void DeleteContact(AddressBook* Address);
-int SearchContact(AddressBook* Address, string name);
+int SearchContact(AddressBook* Address, string searchName, int searchStatus);
+void cleanUpContact(AddressBook* Address);
+void EditContact(AddressBook* Address, int i);

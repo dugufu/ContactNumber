@@ -12,6 +12,7 @@ using namespace std;
 int main() {
 	struct AddressBook Address;
 	int input = 0;
+	string searchName = "";
 	bool status = false;
 	while (status == false) {
 
@@ -31,10 +32,13 @@ int main() {
 			DeleteContact(&Address);
 			break;
 		case 4:
+			SearchContact(&Address, searchName, 1);
 			break;
 		case 5:
+			EditContact(&Address, 0);
 			break;
 		case 6:
+			cleanUpContact(&Address);
 			break;
 		case 0:
 			cout << "See you" << endl;
