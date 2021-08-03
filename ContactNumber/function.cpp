@@ -5,13 +5,20 @@ using namespace std;
 
 int AddContact(AddressBook* Address)
 {
-	cout << "Enter name : " << endl;
 	string name;
+	jump_name:
+	cout << "Enter name : " << endl;
+	
 	cin >> name;
+	int checkStatus = SearchContact(Address, name);
+	if (checkStatus == -1)
+	{
+		goto jump_name;
+	}
 	Address->personArray[Address->record_num].name = name;
 
 	int age;
-	cout << "Enter Age : " << endl;
+	cout << "Enter Contact Number : " << endl;
 	cin >> age;
 	Address->personArray[Address->record_num].contactNumber = age;
 
@@ -43,13 +50,20 @@ jump:
 
 void DisplayContact(AddressBook * Address)
 {
-	for (int i = 0; i < Address->record_num ; i++)
+	for (int i = 0; i < Address->record_num; i++)
 	{
 		cout << "Name :" << Address->personArray[i].name;
 		cout << "\tContact Number : \t" << Address->personArray[i].contactNumber;
 		cout << "\tGender : \t" << Address->personArray[i].S_gender;
 		cout << "\n\n";
+		
 	}
+	if (Address->record_num < 1 )
+	{
+		cout << "No data exists !" << endl;
+	}
+
+	cout << sizeof(Address->personArray) << endl;
 }
 
 void showMenu() {
@@ -96,5 +110,20 @@ void DeleteContact(AddressBook* Address)
 	
 }
 
+
+int SearchContact(AddressBook* Address, string searchName) {
+	if (searchName != "")
+	{
+		for (int i = 0; i < Address->record_num; i++)
+		{
+			if (Address->personArray[i].name == searchName)
+			{
+				cout << "Name already exists by other person" << endl;
+				return -1;
+			}
+		}
+	}
+	return 0;
+}
 
 

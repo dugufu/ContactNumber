@@ -16,3 +16,4 @@ int AddContact(AddressBook *Address);
 void DisplayContact( AddressBook * Address);
 void showMenu();
 void DeleteContact(AddressBook* Address);
+int SearchContact(AddressBook* Address, string name);
